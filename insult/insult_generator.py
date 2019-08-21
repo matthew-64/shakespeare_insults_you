@@ -1,14 +1,14 @@
+from insult.insults import Insults
+import random
 
 
 class Insultor:
 
-    def __init__(self, start_list: list, middle_list: list, end_list: list):
-        self._start_list = start_list
-        self._middle_list = middle_list
-        self._end_list = end_list
+    def __init__(self, insults: Insults):
+        self._insults = insults
 
-    def generate_insult(self):
+    def generate_insult(self) -> str:
         return 'Thou ' \
-               + self._start_list.get_random_value() + ' ' \
-               + self._middle_list.get_random_value() + ' ' \
-               + self._end_list.get_random_value()
+               + random.choice(self._insults.start_list) + ' ' \
+               + random.choice(self._insults.middle_list) + ' ' \
+               + random.choice(self._insults.end_list)

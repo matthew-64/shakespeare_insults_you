@@ -1,4 +1,4 @@
-from insult.insult_list import InsultList
+from insult.insults import Insults
 
 
 class InsultReader:
@@ -6,7 +6,7 @@ class InsultReader:
     def __init__(self, filepath):
         self._filepath = filepath
 
-    def get_insult_lists(self):
+    def get_insults(self) -> Insults:
         list_start = []
         list_middle = []
         list_end = []
@@ -16,4 +16,4 @@ class InsultReader:
                 list_start.append(words[0])
                 list_middle.append(words[1])
                 list_end.append(words[2].strip())
-        return [InsultList(list_start), InsultList(list_middle), InsultList(list_end)]
+        return Insults(list_start, list_middle, list_end)
